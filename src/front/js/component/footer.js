@@ -24,6 +24,9 @@ export const Footer = () => {
                             <li className="nav-item">
                                 <Link className="nav-link text-light" to="/dashboardFreelancer">Freelancers</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link text-light" to="/admin">Admin</Link>
+                            </li>
                         </ul>
                     </div>
 

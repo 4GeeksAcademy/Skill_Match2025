@@ -11,6 +11,7 @@ import { Profile } from "./pages/Profile.js";
 import { Helpcenter } from "./pages/helpcenter";
 import { ContactUs } from "./pages/contactus";
 import { Historial } from "./pages/historial";
+import { Admin } from "./pages/admin.js";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -62,6 +63,7 @@ const Layout = () => {
                         <Route element={<SearchResults />} path="/search" />
                         <Route element={<FreelancerPublicProfile />} path="/profile/:userId" />
                         <Route element={<Profile />} path="/Profile/:id" />
+                        <Route element={<Admin />} path="/admin" />
 
 
 
