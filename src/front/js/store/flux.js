@@ -1,4 +1,4 @@
-const BASE_URL = "https://glowing-umbrella-69vwpw4vg6pwcrwqp-3001.app.github.dev/api";
+const BASE_URL = process.env.BACKEND_URL || "https://miniature-winner-pjpvr464jvpx2rxw9-3001.app.github.dev/api";
 
 
 const getState = ({ getStore, getActions, setStore }) => {

@@ -10,7 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import logo from "./../../../../public/stripe-logo.png";
 
-const BASE_URL = "https://glowing-umbrella-69vwpw4vg6pwcrwqp-3001.app.github.dev/api";
+const BASE_URL = process.env.BACKEND_URL || "https://miniature-winner-pjpvr464jvpx2rxw9-3001.app.github.dev/api";
 
 const PaymentPage = () => {
     const { proposalId } = useParams();

@@ -9,7 +9,8 @@ const ProjectDetails = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await fetch(`https://glowing-umbrella-69vwpw4vg6pwcrwqp-3001.app.github.dev/api/projects/${id}`);
+        const BASE_URL = process.env.BACKEND_URL || "https://miniature-winner-pjpvr464jvpx2rxw9-3001.app.github.dev/api";
+        const res = await fetch(`${BASE_URL}/projects/${id}`);
         const data = await res.json();
 
         if (res.ok) {

@@ -623,9 +623,9 @@ def complete_payment(payment_id):
 
     payment.status = "completed"
     proposal = payment.proposal
-    proposal.status = "completed"
+    proposal.status = "in_progress"  # Cambiado a in_progress para indicar que el trabajo está en curso
     project = proposal.project
-    project.status = "completed"
+    project.status = "in_progress"  # Cambiado a in_progress para indicar que el trabajo está en curso
 
     db.session.commit()
     return jsonify(payment.serialize()), 200
