@@ -64,70 +64,84 @@ export const Navbar = () => {
 
   return (
     <div className="container-fluid">
-      <nav className="navbar">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid navStyles">
           <Link to={"/"} className="navbar-brand">
             <img src={logo} alt="Logo SkillMatch" width="42" height="42" />
           </Link>
 
-          <div className="navbar-nav navOptions col d-flex flex-row">
-            <Link to={"/dashboard"} className="nav-link active ms-2 me-3 text-black">Dashboard</Link>
-            <Link to={"/About"} className="nav-link active ms-2 me-3 text-black">About</Link>
-            <Link to={"/Contact"} className="nav-link active ms-2 me-3 text-black">Contact</Link>
-          </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-          <form className="d-flex me-4" onSubmit={handleSearchSubmit}>
-            <div style={{ width: "250px" }}>
-              <Select
-                isMulti
-                options={availableSkills}
-                value={selectedSkills}
-                onChange={setSelectedSkills}
-                placeholder="Buscar skills..."
-              />
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="navbar-nav me-auto mb-2 mb-lg-0">
+              <Link to={"/dashboard"} className="nav-link active ms-2 me-3 text-black">Dashboard</Link>
+              <Link to={"/About"} className="nav-link active ms-2 me-3 text-black">About</Link>
+              <Link to={"/Contact"} className="nav-link active ms-2 me-3 text-black">Contact</Link>
             </div>
-            <button
-              className="btn btn-outline-dark ms-2"
-              type="submit"
-              disabled={isSearching}
-            >
-              {isSearching ? (
-                <span className="spinner-border spinner-border-sm" role="status" />
-              ) : (
-                <i className="fa-solid fa-magnifying-glass"></i>
-              )}
-            </button>
-            {selectedSkills.length > 0 && (
-              <button
-                className="btn btn-outline-secondary ms-2"
-                type="button"
-                onClick={clearSearch}
-              >
-                Limpiar
-              </button>
-            )}
-          </form>
 
-          <div>
-            {store.isAuthenticated ? (
-              <>
-                <button onClick={goToProfile} className="btn btn-info px-4 py-2 me-2">
-                  <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i> Mi Perfil
+            <form className="d-flex align-items-center mb-2 mb-lg-0" onSubmit={handleSearchSubmit}>
+              <div style={{ width: "250px" }}>
+                <Select
+                  isMulti
+                  options={availableSkills}
+                  value={selectedSkills}
+                  onChange={setSelectedSkills}
+                  placeholder="Buscar skills..."
+                />
+              </div>
+              <button
+                className="btn btn-outline-dark ms-2"
+                type="submit"
+                disabled={isSearching}
+              >
+                {isSearching ? (
+                  <span className="spinner-border spinner-border-sm" role="status" />
+                ) : (
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                )}
+              </button>
+              {selectedSkills.length > 0 && (
+                <button
+                  className="btn btn-outline-secondary ms-2"
+                  type="button"
+                  onClick={clearSearch}
+                >
+                  Limpiar
                 </button>
-                <button onClick={handleLogout} className="btn btn-danger px-4 py-2">
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login">
-                  <button className="btn btn-dark px-4 py-2 me-2">Log in</button>
-                </Link>
-                <Link to="/register">
-                  <button className="btn btn-dark px-4 py-2">Sign up</button>
-                </Link>
-              </>
-            )}
+              )}
+            </form>
+
+            <div className="d-flex ms-lg-3 mt-3 mt-lg-0">
+              {store.isAuthenticated ? (
+                <>
+                  <button onClick={goToProfile} className="btn btn-info px-4 py-2 me-2">
+                    <i className="fa-solid fa-user" style={{ color: "#ffffff" }}></i> Mi Perfil
+                  </button>
+                  <button onClick={handleLogout} className="btn btn-danger px-4 py-2">
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <button className="btn btn-dark px-4 py-2 me-2">Log in</button>
+                  </Link>
+                  <Link to="/register">
+                    <button className="btn btn-dark px-4 py-2">Sign up</button>
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </nav>
